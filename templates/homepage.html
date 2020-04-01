@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+    <title>To-Do Planning</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-ml-12">
+            <table class="table">
+                <h1><b>TO-DO PLANNING</b></h1>
+                <td><b>Duration: {{ duration }} Weeks</b></td>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {% for key, week in toDoList %}
+            <h3><b>WEEK{{ key }}</b></h3>
+            <table class="table">
+                    {% for key, developer in week %}
+                    <td><b>{{ key }}</b></td>
+                        {% for issues in developer %}
+                            <tr>
+                                <td>{{ issues }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% endfor %}
+            </table>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
